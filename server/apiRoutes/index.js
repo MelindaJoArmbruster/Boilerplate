@@ -4,6 +4,8 @@ const router = require('express').Router();
 // router.use('/puppies', require('./puppies')); // matches all requests to  /api/puppies/
 // router.use('/kittens', require('./kittens')); // matches all requests to  /api/kittens/
 
+router.use('/auth', require('./auth')); // matches all requests to /api/user/
+
 //to handle  API routes that don't exist:
 router.use(function (req, res, next) {
   const err = new Error('Not found.');

@@ -1,3 +1,16 @@
+// this means that we need to make sure our local NODE_ENV variable is in fact set to 'development'
+// Node may have actually done this for you when you installed it! If not though, be sure to do that. (on command line, export NODE_ENV=development)
+if (process.env.NODE_ENV === 'development') {
+  console.log(
+    'process.env.NODE_ENV is set to development, so loading local secrets'
+  );
+  require('./localSecrets'); // this will mutate the process.env object with your secrets.
+} else {
+  console.log(
+    '!!! process.env.NODE_ENV is NOT set to development, so NOT loading local secrets'
+  );
+}
+
 const { db } = require('./db');
 const app = require('./app');
 const PORT = process.env.PORT || 3000; // this can be very useful if you deploy to Heroku!
